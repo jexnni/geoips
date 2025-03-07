@@ -275,8 +275,7 @@ def get_title_string_from_objects(
     if title_copyright is None:
         title_copyright = gpaths["GEOIPS_COPYRIGHT"]
 
-    if title_formatter_kwargs is None:
-        title_formatter_kwargs = "hNoneTesth"
+    
 
     from geoips.sector_utils.utils import is_sector_type
 
@@ -306,12 +305,11 @@ def get_title_string_from_objects(
         title_formatter_plugin = title_formatters.get_plugin("static_standard")
 
     #testing the kwargs to address to different plugin
-    if title_formatter_kwargs is not None:
-        title_formatter_plugin = title_formatters.get_plugin(title_formatter) #not an issue
-    elif is_sector_type(area_def, "tc"):
-        title_formatter_plugin = title_formatters.get_plugin("tc_standard") #nai
-    else:
+    if title_formatter_kwargs is None:
+        title_formatter_kwargs = gpaths["GEOIPS_TITLE"]
         title_formatter_plugin = title_formatters.get_plugin("test_static_standard")
+    else:
+        title_formatter_plugin = title_formatters.get_plugin(title_formatter) #not an issue
 
     title_string = title_formatter_plugin(
         area_def,
@@ -322,7 +320,6 @@ def get_title_string_from_objects(
         bg_product_name_title=bg_product_name_title,
         bg_datatype_title=bg_datatype_title,
         title_copyright=title_copyright,
-        title_formatter_kwargs=title_formatter_kwargs,
     )
 
     return title_string

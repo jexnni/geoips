@@ -36,7 +36,7 @@ def call(
         )
         # title_string = f'{title_line1}\n{title_line2}\n{title_line3}\n
         #                                                             {title_copyright}'
-        title_string = f"1{title_formatter_kwargs}-{title_line1}\n{title_line2}\n{title_line3}\n{title_formatter_kwargs}--{title_copyright}"
+        title_string = f"1{title_formatter_kwargs}-{title_line1}\n{title_line2}\n{title_line3}\n-{title_copyright}"
     else:
         title_string = f"2{title_formatter_kwargs}-{title_line1}\n{title_line2}\n{title_copyright}"
         
