@@ -10,7 +10,7 @@ LOG = logging.getLogger(__name__)
 
 interface = "title_formatters"
 family = "standard"
-name = "static_standard"
+name = "test_static_standard"
 
 
 def call(
@@ -22,6 +22,8 @@ def call(
     bg_product_name_title=None,
     bg_datatype_title=None,
     title_copyright=None,
+    title_formatter_kwargs=None,
+    output_dict=None,
 ):
     """Generate standard GeoIPS formatted title."""
     title_line1 = "{0} {1}".format(product_datatype_title, product_name_title)
@@ -34,9 +36,9 @@ def call(
         )
         # title_string = f'{title_line1}\n{title_line2}\n{title_line3}\n
         #                                                             {title_copyright}'
-        title_string = f"1{title_line1}\n{title_line2}\n{title_line3}\n-{title_copyright}"
+        title_string = f"1{title_formatter_kwargs}-{title_line1}\n{title_line2}\n{title_line3}\n-{title_copyright}"
     else:
-        title_string = f"2{title_line1}\n{title_line2}\n{title_copyright}"
+        title_string = f"2{title_formatter_kwargs}-{title_line1}\n{title_line2}\n{title_copyright}"
         
     LOG.info("Not dynamic, using standard title_string: %s", title_string)
 

@@ -112,6 +112,8 @@ def initialize_paths():
         # Copyright Information
         "GEOIPS_COPYRIGHT": "NRL-Monterey",
         "GEOIPS_COPYRIGHT_ABBREVIATED": "NRLMRY",
+        #Title testing
+        "GEOIPS_TITLE":"Anything you want",
         # Configuration and Queue
         "GEOIPS_RCFILE": "",
         "DEFAULT_QUEUE": None,
